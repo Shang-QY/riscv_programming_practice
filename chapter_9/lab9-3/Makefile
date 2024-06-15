@@ -102,11 +102,13 @@ benos_payload.bin: $(SBI_SRC_DIR)/sbi_linker_payload.ld $(SBI_OBJ_FILES) $(OBJ_F
 ##############
 #  run qemu
 ##############
+AIA_PROJECT_DIR=/home/sqy/intel/aia_domain_context
+
 ifeq ($(board), qemu)
 QEMU_FLAGS  += -nographic -machine virt -m 128M 
-QEMU_BIOS = -bios mysbi.bin  -device loader,file=benos.bin,addr=0x80200000 
+QEMU_BIOS = -bios $(AIA_PROJECT_DIR)/opensbi/build/platform/generic/firmware/fw_jump.bin
 run:
-	qemu-system-riscv64 $(QEMU_FLAGS) $(QEMU_BIOS) -kernel benos.elf
+	$(AIA_PROJECT_DIR)/qemu-system-riscv64 $(QEMU_FLAGS) $(QEMU_BIOS) -kernel benos.elf
 debug:
 	qemu-system-riscv64 $(QEMU_FLAGS) $(QEMU_BIOS) -kernel benos.elf -S -s
 payload:
