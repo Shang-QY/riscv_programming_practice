@@ -6,6 +6,7 @@
 #define MAX_PLIC_IRQS 53
 
 #define UART0_IRQ (10)
+#define UART1_IRQ (12)
 
 #define PLIC_BASE 0xc000000UL
 #define PLIC_END 0x10000000UL

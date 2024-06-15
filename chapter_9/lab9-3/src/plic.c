@@ -52,7 +52,9 @@ void plic_handle_irq(struct pt_regs *regs)
 	csr_clear(sie, SIE_SEIE);
 
 	while((hwirq = readl(claim_reg))) {
-		if (hwirq == UART0_IRQ)
+        printk("[Shang debug] receive hwirq:%d\n", hwirq);
+
+		if (hwirq == UART1_IRQ)
 			handle_uart_irq();
 
 		writel(hwirq, claim_reg);

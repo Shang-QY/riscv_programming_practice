@@ -79,5 +79,5 @@ void enable_uart_plic()
 
 	uart_init();
 
-	plic_enable_irq(cpu, UART0_IRQ, 1);
+	plic_enable_irq(cpu, UART1_IRQ, 1);
 }

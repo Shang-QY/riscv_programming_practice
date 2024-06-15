@@ -1,7 +1,7 @@
 #ifndef	_UART_H
 #define	_UART_H
 
-#define UART        0x10000000
+#define UART        0x10002000
 
 /* THR:transmitter holding register */
 #define UART_DAT    (UART+0x00) /* 数据寄存器*/
